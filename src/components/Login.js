@@ -28,7 +28,7 @@ export default function Login() {
             history.push('/articles')
         }
         catch(err){
-            alert(err.message);
+            alert(err.response.data.error);
         }
         
     }

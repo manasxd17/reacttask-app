@@ -26,7 +26,7 @@ export default function Navbar() {
                 setEmail(selfData.data.email)
             }
             catch(err){
-                alert(err.message);
+                alert(err.response.data.error);
             }
         }
         fetchEmail();

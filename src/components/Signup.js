@@ -23,13 +23,13 @@ export default function Signup() {
 
     const publishUser = async (event) => {
         event.preventDefault();
-        let userData = {
-            "fullname": username,
-            "mobile": mobile,
-            "email": email,
-            "password": password
-        }
         try {
+            let userData = {
+                "fullname": username,
+                "mobile": mobile,
+                "email": email,
+                "password": password
+            }
             const res = await axios.post('https://manasxd17.herokuapp.com/register', userData);
             alert(`You're registered`);
             setUsername('');
@@ -37,9 +37,8 @@ export default function Signup() {
             setPassword('');
             setMobile('');
             history.push("/login")
-        }
-        catch (err) {
-            alert(err.message);
+        }catch (err) {
+            alert(err.response.data.error)
         }
 
     }

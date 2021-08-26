@@ -24,7 +24,7 @@ export default function MyArticles() {
                 setArticles(myarticles);
             }
             catch (err) {
-                alert(err.message);
+                alert(err.response.data.error);
             }
         }
         getmyArticles();
@@ -45,7 +45,7 @@ export default function MyArticles() {
             console.log(deleteData);
         }
         catch(err){
-            alert(err.message);
+            alert(err.response.data.error);
         }
     }
     return (

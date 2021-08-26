@@ -29,7 +29,7 @@ export default function ArticleMain() {
                 setArticles(articles);
             }
             catch (err) {
-                alert(err.message);
+                alert(err.response.data.error);
             }
         }
         getallArticles();

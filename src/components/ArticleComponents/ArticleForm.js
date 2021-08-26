@@ -26,7 +26,7 @@ export default function ArticleForm() {
                 setEmail(selfData.data.email)
             }
             catch(err){
-                alert(err.message);
+                alert(err.response.data.error);
             }
         }
         fetchEmail();
@@ -53,7 +53,7 @@ export default function ArticleForm() {
             setDescription('')
         }
         catch(err){
-            alert(err.message);
+            alert(err.response.data.error);
         }
         
     }
