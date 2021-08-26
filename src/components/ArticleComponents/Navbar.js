@@ -32,8 +32,13 @@ export default function Navbar() {
         fetchEmail();
     },[])
 
-    const tomyArticles = () => {
+    const tomyArticles = (event) => {
+        event.preventDefault();
         history.push('/articles/myarticles')
+    }
+    const toHome = (event) => {
+        event.preventDefault();
+        history.push("/articles")
     }
 
     return (
@@ -45,6 +50,9 @@ export default function Navbar() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarText">
                     <ul className="navbar-nav ml-auto">
+                        <li className="nav-item">
+                            <button className="btn btn-dark" onClick = {toHome}>Home <i class="fa fa-home" aria-hidden="true"></i></button>
+                        </li>
                         <li className="nav-item active">
                             <button className="btn btn-dark" onClick = {createHandler}>
                                 Create Article <i className="fa fa-newspaper-o" aria-hidden="true"></i>
