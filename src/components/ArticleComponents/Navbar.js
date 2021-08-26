@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 export default function Navbar(props) {
     const history = useHistory();
-    const [email, setEmail] = useState(null);
+    const [Name, setName] = useState(null);
     const logoutHandler = () => {
         localStorage.removeItem('token');
         history.push('/login');
@@ -23,7 +23,7 @@ export default function Navbar(props) {
                     'headers':tokenHeader()
                 }
                 const selfData = await axios(structure);
-                setEmail(selfData.data.email.replace('@gmail.com','.'))
+                setName(selfData.data.fullname)
             }
             catch(err){
                 alert(err.response.data.error);
@@ -44,7 +44,7 @@ export default function Navbar(props) {
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-dark">
-            <span className="navbar-brand" style={{ color: "white", fontFamily: "Baskerville, Baskerville Old Face, Hoefler Text, Garamond, Times New Roman, serif", fontSize: "24px" }}>Hi! Welcome  {email}</span>
+            <span className="navbar-brand" style={{ color: "white", fontFamily: "Baskerville, Baskerville Old Face, Hoefler Text, Garamond, Times New Roman, serif", fontSize: "24px" }}>Hi! Welcome  {Name}</span>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
