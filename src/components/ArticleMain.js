@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from './ArticleComponents/Navbar';
 import ArticleForm from './ArticleComponents/ArticleForm';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { tokenHeader } from '../HeaderService';
 import axios from 'axios';
 import MyArticles from './ArticleComponents/MyArticles';
@@ -38,12 +38,14 @@ export default function ArticleMain() {
     return (
         <div>
             <Navbar></Navbar>
-            <Route path="/articles/articleform">
-                <ArticleForm></ArticleForm>
-            </Route>
-            <Route path="/articles/myarticles">
-                <MyArticles></MyArticles>
-            </Route>
+            <Switch>
+                <Route path="/articles/articleform">
+                    <ArticleForm></ArticleForm>
+                </Route>
+                <Route path="/articles/myarticles">
+                    <MyArticles></MyArticles>
+                </Route>
+            </Switch>
             <div>
                 <h1 style = {{fontFamily:"Brush Script MT,cursive",textAlign:"center"}}>All articles</h1>
             </div>

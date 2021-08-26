@@ -3,7 +3,7 @@ import { tokenHeader } from '../../HeaderService';
 import axios from 'axios';
 export default function MyArticles() {
     let i = 1;
-    const [Articles, setArticles] = useState('');
+    const [Articles, setArticles] = useState(null);
     useEffect(() => {
         async function getmyArticles() {
             try {
