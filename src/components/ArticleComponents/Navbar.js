@@ -51,7 +51,7 @@ export default function Navbar(props) {
                 <div className="collapse navbar-collapse" id="navbarText">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <button className="btn btn-dark" onClick = {toHome}>Home <i class="fa fa-home" aria-hidden="true"></i></button>
+                            <button className="btn btn-dark" onClick = {toHome}>Home <i className="fa fa-home" aria-hidden="true"></i></button>
                         </li>
                         <li className="nav-item active">
                             <button className="btn btn-dark" onClick = {createHandler}>
