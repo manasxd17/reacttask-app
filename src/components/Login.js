@@ -27,6 +27,7 @@ export default function Login() {
             const check = await axios.post('https://manasxd17.herokuapp.com/login', loginData);
             const localData = check.data.token
             localStorage.setItem('token', localData);
+            setLoading(false);
             alert(`Successfully Logged in`);
             history.push('/articles')
         }

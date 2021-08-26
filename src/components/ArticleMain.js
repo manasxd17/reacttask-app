@@ -5,16 +5,12 @@ import { Route, Switch } from 'react-router-dom';
 import { tokenHeader } from '../HeaderService';
 import axios from 'axios';
 import MyArticles from './ArticleComponents/MyArticles';
-import './Loading.css';
-import Loading from './Loading';
 export default function ArticleMain() {
     let i = 1;
     const [Articles, setArticles] = useState('');
-    const [loading, setLoading] = useState(false);
     useEffect(() => {
         async function getallArticles() {
             try {
-                setLoading(true)
                 let structure = {
                     'method': 'get',
                     'url': 'https://manasxd17.herokuapp.com/articles',
@@ -30,16 +26,14 @@ export default function ArticleMain() {
                     }
                 })
                 setArticles(articles);
-                setLoading(false);
-                
+
             }
             catch (err) {
                 alert(err.response.data.error);
-                setLoading(false);
             }
         }
         getallArticles();
-    },[Loading])
+    })
     return (
         <div>
             <Navbar></Navbar>
@@ -54,34 +48,26 @@ export default function ArticleMain() {
             <div>
                 <h1 style={{ fontFamily: "Brush Script MT,cursive", textAlign: "center" }}>All articles</h1>
             </div>
+
             <div>
-                {
-                    loading ?
-                        <div>
-                            <Loading></Loading>
-                        </div>
-                        :
-                        <div>
-                            <div className="container mt-4">
-                                <div className="row">
-                                    {Articles && Articles.map((perArticle) => {
-                                        return (
-                                            <div className="col-sm-6 col-md-4" key={perArticle.id}>
-                                                <div className="card border-dark mb-3">
-                                                    <div className="card-header">Article {i++}</div>
-                                                    <div className="card-body text-dark">
-                                                        <h5 className="card-title">{perArticle.title}</h5>
-                                                        <p className="card-text">{perArticle.desc}</p>
-                                                        <small className="card-footer text-muted">Created by : {perArticle.author}</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        )
-                                    })}
+                <div className="container mt-4">
+                    <div className="row">
+                        {Articles && Articles.map((perArticle) => {
+                            return (
+                                <div className="col-sm-6 col-md-4" key={perArticle.id}>
+                                    <div className="card border-dark mb-3">
+                                        <div className="card-header">Article {i++}</div>
+                                        <div className="card-body text-dark">
+                                            <h5 className="card-title">{perArticle.title}</h5>
+                                            <p className="card-text">{perArticle.desc}</p>
+                                            <small className="card-footer text-muted">Created by : {perArticle.author}</small>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                }
+                            )
+                        })}
+                    </div>
+                </div>
             </div>
         </div>
     )
