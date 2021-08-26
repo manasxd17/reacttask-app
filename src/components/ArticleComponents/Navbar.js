@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { tokenHeader } from '../../HeaderService';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-export default function Navbar() {
+export default function Navbar(props) {
     const history = useHistory();
     const [email, setEmail] = useState(null);
     const logoutHandler = () => {
@@ -23,7 +23,7 @@ export default function Navbar() {
                     'headers':tokenHeader()
                 }
                 const selfData = await axios(structure);
-                setEmail(selfData.data.email)
+                setEmail(selfData.data.email.replace('@gmail.com','.'))
             }
             catch(err){
                 alert(err.response.data.error);
@@ -34,11 +34,11 @@ export default function Navbar() {
 
     const tomyArticles = (event) => {
         event.preventDefault();
-        history.push('/articles/myarticles')
+        history.push('/articles/myarticles');
     }
     const toHome = (event) => {
         event.preventDefault();
-        history.push("/articles")
+        history.push('/articles');
     }
 
     return (

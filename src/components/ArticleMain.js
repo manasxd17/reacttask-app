@@ -34,7 +34,6 @@ export default function ArticleMain() {
         }
         getallArticles();
     })
-
     return (
         <div>
             <Navbar></Navbar>
