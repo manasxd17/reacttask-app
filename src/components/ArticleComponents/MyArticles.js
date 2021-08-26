@@ -42,7 +42,7 @@ export default function MyArticles() {
                 }
             }
             const deleteData = await axios(structure)
-            console.log(deleteData);
+            alert(deleteData.data.message)
         }
         catch(err){
             alert(err.response.data.error);
