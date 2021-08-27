@@ -74,7 +74,7 @@ export default function ArticleForm() {
                         </div>
                         <br />
                         <div className="pl-5 mb-2">
-                            <button className="btn btn-light" type="submit">Publish <i className="fa fa-plus" aria-hidden="true"></i></button>
+                            <button className="btn btn-light" type="submit">Publish <i className="fa fa-database" aria-hidden="true"></i></button>
                         </div>
                     </form>
                 </div>

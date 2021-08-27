@@ -60,7 +60,7 @@ export default function Login() {
                                             <input type="password" className="form-control col-sm-6" placeholder="Password" value={password} onChange={passwordHandler} />
                                         </div>
                                         <br />
-                                        <button type="submit" className="btn btn-dark">Login<i className="fa fa-user-plus" aria-hidden="true"></i></button>
+                                        <button type="submit" className="btn btn-dark">Login <i className="fa fa-sign-in" aria-hidden="true"></i></button>
                                         <small id="emailHelp" className="form-text text-muted">Not registered?
                                             <Link to="/">
                                                 <span> Signup</span>
